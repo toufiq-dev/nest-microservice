@@ -33,7 +33,10 @@ export class PaymentsService {
       return_url: 'http://localhost:3000/reservations',
     });
 
-    this.notificationsService.emit('notify_email', { email });
+    this.notificationsService.emit('notify_email', {
+      email,
+      text: `Your payment of ${amount} has completed successfully.`,
+    });
 
     return paymentIntent;
   }
